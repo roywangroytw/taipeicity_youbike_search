@@ -92,9 +92,14 @@ $(document).ready(function (){
       
     });
 
+    footer.className = "footer_w_content"
+
+    } else {
+
+      alert("無法搜尋，搜尋關鍵字至少擇其一搜尋：行政區or地址關鍵字")
+
     }
 
-    footer.className = "footer_w_content"
 
   });
 
