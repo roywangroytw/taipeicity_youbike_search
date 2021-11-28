@@ -310,4 +310,9 @@ body {
   .buttons {
     justify-content: space-between;
   }
+
+  .container {
+    position: relative;
+    z-index: 0;
+  }
 }
