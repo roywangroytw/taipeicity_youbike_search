@@ -1,0 +1,137 @@
+/* Grid Setting ============================================================ */
+:root {
+  --grid-gap: 15px;
+}
+
+.container {
+  width: 100%;
+  /* max-width: 1200px; */
+  /* display: flex;
+      flex-wrap: wrap; */
+  /* 以上直接給row來設定了 */
+  margin: auto;
+  padding: 0 var(--grid-gap);
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(var(--grid-gap) * -1);
+  margin-right: calc(var(--grid-gap) * -1);
+}
+
+[class*="col-"] {
+  box-sizing: border-box;
+  padding: 0 var(--grid-gap);
+  margin-bottom: 30px;
+}
+
+/* prettier-ignore */
+.col-1 { width: 8.333333%;}
+/* prettier-ignore */
+.col-2 { width: 16.666666%;}
+/* prettier-ignore */
+.col-3 { width: 25%;}
+/* prettier-ignore */
+.col-4 { width: 33.333333%;}
+/* prettier-ignore */
+.col-5 { width: 41.666666%;}
+/* prettier-ignore */
+.col-6 { width: 50%;}
+/* prettier-ignore */
+.col-7 { width: 58.333333%;}
+/* prettier-ignore */
+.col-8 { width: 66.666666%;}
+/* prettier-ignore */
+.col-9 { width: 75%;}
+/* prettier-ignore */
+.col-10 { width: 83.333333%;}
+/* prettier-ignore */
+.col-11 { width: 91.666666%;}
+/* prettier-ignore */
+.col-12 { width: 100%;}
+
+/* ( Pad直向 ) */
+@media screen and (min-width: 768px) {
+  /* prettier-ignore */
+  .col-md-1 { width: 8.333333%;}
+  /* prettier-ignore */
+  .col-md-2 { width: 16.666666%;}
+  /* prettier-ignore */
+  .col-md-3 { width: 25%;}
+  /* prettier-ignore */
+  .col-md-4 { width: 33.333333%;}
+  /* prettier-ignore */
+  .col-md-5 { width: 41.666666%;}
+  /* prettier-ignore */
+  .col-md-6 { width: 50%;}
+  /* prettier-ignore */
+  .col-md-7 { width: 58.333333%;}
+  /* prettier-ignore */
+  .col-md-8 { width: 66.666666%;}
+  /* prettier-ignore */
+  .col-md-9 { width: 75%;}
+  /* prettier-ignore */
+  .col-md-10 { width: 83.333333%;}
+  /* prettier-ignore */
+  .col-md-11 { width: 91.666666%;}
+  /* prettier-ignore */
+  .col-md-12 { width: 100%;}
+}
+
+/* ( Pad橫向 & Pad直向 ) */
+@media screen and (min-width: 1024px) {
+  /* prettier-ignore */
+  .col-lg-1 { width: 8.333333%;}
+  /* prettier-ignore */
+  .col-lg-2 { width: 16.666666%;}
+  /* prettier-ignore */
+  .col-lg-3 { width: 25%;}
+  /* prettier-ignore */
+  .col-lg-4 { width: 33.333333%;}
+  /* prettier-ignore */
+  .col-lg-5 { width: 41.666666%;}
+  /* prettier-ignore */
+  .col-lg-6 { width: 50%;}
+  /* prettier-ignore */
+  .col-lg-7 { width: 58.333333%;}
+  /* prettier-ignore */
+  .col-lg-8 { width: 66.666666%;}
+  /* prettier-ignore */
+  .col-lg-9 { width: 75%;}
+  /* prettier-ignore */
+  .col-lg-10 { width: 83.333333%;}
+  /* prettier-ignore */
+  .col-lg-11 { width: 91.666666%;}
+  /* prettier-ignore */
+  .col-lg-12 { width: 100%;}
+}
+
+/* ( Pad pro橫向 ＆ desktop ) */
+@media screen and (min-width: 1200px) {
+  /* prettier-ignore */
+  .col-xl-1 { width: 8.333333%;}
+  /* prettier-ignore */
+  .col-xl-2 { width: 16.666666%;}
+  /* prettier-ignore */
+  .col-xl-3 { width: 25%;}
+  /* prettier-ignore */
+  .col-xl-4 { width: 33.333333%;}
+  /* prettier-ignore */
+  .col-xl-5 { width: 41.666666%;}
+  /* prettier-ignore */
+  .col-xl-6 { width: 50%;}
+  /* prettier-ignore */
+  .col-xl-7 { width: 58.333333%;}
+  /* prettier-ignore */
+  .col-xl-8 { width: 66.666666%;}
+  /* prettier-ignore */
+  .col-xl-9 { width: 75%;}
+  /* prettier-ignore */
+  .col-xl-10 { width: 83.333333%;}
+  /* prettier-ignore */
+  .col-xl-11 { width: 91.666666%;}
+  /* prettier-ignore */
+  .col-xl-12 { width: 100%;}
+}
