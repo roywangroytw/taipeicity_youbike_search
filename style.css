@@ -1,0 +1,97 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;500;700&family=Poppins:wght@100;200;500&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Noto Sans TC', sans-serif;
+  /* font-family: 'Poppins', sans-serif; for English & number */
+
+}
+
+body {
+  background-color: white;
+  background: linear-gradient(90deg, #b9d0e2, #eef2f3);
+}
+
+.page-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3rem;
+  background: linear-gradient(90deg,#36D1DC, #5B86E5);
+  color: white;
+  text-align: right;
+  padding-right: 50px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.page-subtitle {
+  text-align: right;
+  padding-right: 50px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background: linear-gradient(90deg, #b9d0e2, #eef2f3);
+  color: #5B86E5;
+
+  
+}
+
+#header {
+  width: 95%;
+  height: 100px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 4px solid #b9d0e2;
+}
+
+.fields {
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.buttons {
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+}
+
+#header input {
+  width: 49%;
+  height: 50px;
+  border: none;
+  border-bottom: 4px solid #b9d0e2;
+  border-radius: 5px;
+  background-color: #eef2f3;
+  padding-left: 10px;
+  font-size: 1.3rem;
+  color: rgb(61, 61, 61);
+
+}
+
+#header button {
+  width: 49%;
+  height: 50px;
+}
+
+#header button:first-child {
+  border: none;
+  border-radius: 5px;
+  background-color: #5B86E5;
+  font-size: 1.3rem;
+  color: white;
+  line-height: 50px;
+}
+
+#header button:last-child {
+  border: none;
+  border-radius: 5px;
+  background-color: #b9d0e2;
+  font-size: 1.3rem;
+  color: white;
+  line-height: 50px;
+}

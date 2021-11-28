@@ -12,7 +12,7 @@ $(document).ready(function (){
     const inputValue_txt = search_input_txt.value.trim();
 
     // 如果input有valide 值，才會call api
-    if (inputValue_disc !== "" && inputValue_txt !== "") {
+    if (inputValue_disc !== "" || inputValue_txt !== "") {
 
       $.ajax({
         url: 'https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json',
@@ -34,7 +34,9 @@ $(document).ready(function (){
               // sarea: district
 
               const result_item = document.createElement("div");
+              const result_item_content = document.createElement("div");
               result_item.className = "col-12 col-md-4 col-lg-3";
+              result_item_content.className = "content-box";
 
               const result_item_info = document.createElement("div");
               const result_item_info_name = document.createElement("h2");
@@ -56,7 +58,8 @@ $(document).ready(function (){
               result_item_data_free.innerText = sbi;
 
               result_container.appendChild(result_item);
-              result_item.append(result_item_info, result_item_data);
+              result_item.appendChild(result_item_content);
+              result_item_content.append(result_item_info, result_item_data);
               result_item_info.append(result_item_info_name, result_item_info_district, result_item_info_address);
               result_item_data.append(result_item_data_total, result_item_data_ava, result_item_data_all, result_item_data_free);
 
@@ -67,6 +70,7 @@ $(document).ready(function (){
           // Q: how to get the location of browser?
           // Q: how to make html ready and just simply use JS to duplicate and fill in the data?
           // Q: how to make the JS code better and simpler?
+          // Q: why bgc in the body will be divided?
     
         }
       
