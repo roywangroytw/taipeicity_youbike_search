@@ -46,7 +46,6 @@ body {
   justify-content: space-around;
   border-bottom: 4px solid #b9d0e2;
   margin-bottom: 50px;
-  z-index: 100;
 }
 
 .fields {
@@ -281,6 +280,7 @@ body {
     padding: 0 20px 0 20px;
     box-shadow: rgba(0, 0, 0, 0.192) 0px 20px 25px -5px,
       rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    z-index: 10;
   }
 
   .fields {
