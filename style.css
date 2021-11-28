@@ -46,6 +46,7 @@ body {
   justify-content: space-around;
   border-bottom: 4px solid #b9d0e2;
   margin-bottom: 50px;
+  z-index: 100;
 }
 
 .fields {
