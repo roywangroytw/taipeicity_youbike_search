@@ -5,6 +5,7 @@ $(document).ready(function (){
   const search_input_disc = document.querySelector("#search_input_disc");
   const search_input_txt = document.querySelector("#search_input_txt");
   const result_container = document.querySelector(".row")
+  const footer = document.querySelector("footer");
 
   searchbtn.addEventListener('click', (term) => {
     
@@ -83,6 +84,8 @@ $(document).ready(function (){
     });
 
     }
+
+    footer.className = "footer_w_content"
 
   });
 

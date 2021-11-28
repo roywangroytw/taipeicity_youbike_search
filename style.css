@@ -12,8 +12,8 @@
 }
 
 body {
-  background-color: white;
   background: linear-gradient(90deg, #b9d0e2, #eef2f3);
+  position: relative;
 }
 
 .page-title {
@@ -25,6 +25,10 @@ body {
   padding-right: 50px;
   padding-top: 5px;
   padding-bottom: 5px;
+}
+
+.page-title i {
+  margin-right: 5px;
 }
 
 .page-subtitle {
@@ -46,7 +50,7 @@ body {
   align-items: center;
   justify-content: space-around;
   border-bottom: 4px solid #b9d0e2;
-  margin-bottom: 80px;
+  margin-bottom: 50px;
 
 }
 
@@ -74,6 +78,11 @@ body {
   color: rgb(61, 61, 61);
 }
 
+#header input:focus {
+  outline: 2px solid #5B86E5;
+}
+
+
 #header button {
   width: 49%;
   height: 50px;
@@ -86,6 +95,14 @@ body {
   font-size: 1.3rem;
   color: white;
   line-height: 50px;
+  transition: background-color 0.3s ease;
+}
+
+#header button:first-child:hover {
+
+  background-color: #3867cc;
+  cursor: pointer;
+
 }
 
 #header button:last-child {
@@ -95,6 +112,14 @@ body {
   font-size: 1.3rem;
   color: white;
   line-height: 50px;
+  transition: background-color 0.3s ease;
+}
+
+#header button:last-child:hover {
+
+  background-color: #f0ceee;
+  cursor: pointer;
+
 }
 
 .content-box {
@@ -166,6 +191,61 @@ body {
   color: #5B86E5;
 }
 
+.footer {
+  width: 100%;
+  color: #b9d0e2;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+}
+
+
+.footer a {
+  font-size: 1.7rem;
+  margin: 20px;
+  color: rgb(39, 49, 85)
+}
+
+.footer p {
+  background-color: rgb(39, 49, 85);
+  font-weight: 300;
+  font-size: 0.8rem;
+}
+
+.footer .author_info {
+  background-color: #b9d0e2;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer_w_content {
+  width: 100%;
+  color: #b9d0e2;
+  text-align: center;
+}
+
+.footer_w_content a {
+  font-size: 1.7rem;
+  margin: 20px;
+  color: rgb(39, 49, 85)
+}
+
+.footer_w_content p {
+  background-color: rgb(39, 49, 85);
+  font-weight: 300;
+  font-size: 0.8rem;
+}
+
+.footer_w_content .author_info {
+  background-color: #b9d0e2;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media screen and (max-width: 768px) {
   #header {
     flex-direction: column;
@@ -180,10 +260,6 @@ body {
     box-shadow: rgba(0, 0, 0, 0.192) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
   }
 
-  .page-subtitle {
-    margin-bottom: 20px;
-  }
-
   .fields {
     width: 100%;
   }
@@ -195,5 +271,10 @@ body {
   .page-title,
   .page-subtitle {
     text-align: center;
+    padding-right: 0px;
+  }
+
+  .page-title {
+    font-size: 2rem;
   }
 }
