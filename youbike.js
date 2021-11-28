@@ -39,11 +39,16 @@ $(document).ready(function (){
               result_item_content.className = "content-box";
 
               const result_item_info = document.createElement("div");
+              result_item_info.className = "info"; 
               const result_item_info_name = document.createElement("h2");
+              if (sna.match("捷運")) {
+                result_item_info_name.className = 'mrt'
+              }
               const result_item_info_district = document.createElement("p");
               const result_item_info_address = document.createElement("p");
 
               const result_item_data = document.createElement("div");
+              result_item_data.className = "data";
               const result_item_data_total = document.createElement("p");
               const result_item_data_ava = document.createElement("p");
               const result_item_data_all = document.createElement("p");

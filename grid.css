@@ -1,11 +1,11 @@
 /* Grid Setting ============================================================ */
 :root {
-  --grid-gap: 20px;
+  --grid-gap: 15px;
 }
 
 .container {
-  width: 90%;
-  max-width: 1200px;
+  width: 95%;
+  max-width: 1500px;
   /* display: flex;
       flex-wrap: wrap; */
   /* 以上直接給row來設定了 */
