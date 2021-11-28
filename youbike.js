@@ -61,6 +61,10 @@ $(document).ready(function (){
               const result_item_data_all = document.createElement("p");
               const result_item_data_free = document.createElement("p");
 
+              if (sbi === 0) {
+                result_item_data_free.className = "no_spot";
+              }
+
               result_item_info_name.innerText = sna.replace("YouBike2.0_", "");
               result_item_info_district.innerText = sarea;
               result_item_info_address.innerText = adr;

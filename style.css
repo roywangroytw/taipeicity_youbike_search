@@ -207,6 +207,10 @@ body {
   color: #5B86E5;
 }
 
+.data p:nth-child(4).no_spot {
+  color: rgb(221, 74, 74);
+}
+
 .footer {
   width: 100%;
   color: #b9d0e2;
