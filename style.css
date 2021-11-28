@@ -297,6 +297,10 @@ body {
     padding-right: 0px;
   }
 
+  .page-subtitle {
+    font-size: 1rem;
+  }
+
   .page-title {
     font-size: 2rem;
   }
