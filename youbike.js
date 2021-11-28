@@ -20,6 +20,8 @@ $(document).ready(function (){
         dataType: 'json',
         success: function(data) {
 
+          console.log(data);
+          
           data.forEach((item) => {
             const regex_1 = `${inputValue_txt}`;
             const regex_2 = `${inputValue_disc}`;
@@ -82,14 +84,12 @@ $(document).ready(function (){
             }
 
           })
-
           // Q: how to get the location of browser?
           // Q: how to make html ready and just simply use JS to duplicate and fill in the data?
           // Q: how to make the JS code better and simpler?
           // Q: why bgc in the body will be divided?
-    
-        }
-      
+
+        } 
     });
 
     footer.className = "footer_w_content"
