@@ -18,9 +18,11 @@ $(document).ready(function (){
           let count = 0
 
           data.forEach((item) => {
-
-            if (item.sarea === inputValue) {
-              
+            const regex = `${inputValue}`
+            const adr = item.ar
+            if (adr.match(regex)) {
+              count += 1;
+              console.log(count);
             }
 
           })
