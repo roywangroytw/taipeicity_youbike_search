@@ -1,6 +1,7 @@
 $(document).ready(function (){
 
   const searchbtn = document.querySelector("#searchbtn");
+  const clearbtn = document.querySelector('#clear');
   const search_input_disc = document.querySelector("#search_input_disc");
   const search_input_txt = document.querySelector("#search_input_txt");
   const result_container = document.querySelector(".row")
@@ -33,7 +34,7 @@ $(document).ready(function (){
               // sarea: district
 
               const result_item = document.createElement("div");
-              result_item.className = "col-12 col-md-3";
+              result_item.className = "col-12 col-md-4 col-lg-3";
 
               const result_item_info = document.createElement("div");
               const result_item_info_name = document.createElement("h2");
@@ -59,23 +60,27 @@ $(document).ready(function (){
               result_item_info.append(result_item_info_name, result_item_info_district, result_item_info_address);
               result_item_data.append(result_item_data_total, result_item_data_ava, result_item_data_all, result_item_data_free);
 
-
-
-
-              
-
             }
 
           })
 
           // Q: how to get the location of browser?
           // Q: how to make html ready and just simply use JS to duplicate and fill in the data?
+          // Q: how to make the JS code better and simpler?
     
         }
       
     });
 
     }
+
+  });
+
+  // clear the search input
+  clearbtn.addEventListener("click", (term) =>{
+
+    search_input_disc.value = "";
+    search_input_txt.value = "";
 
   })
 
