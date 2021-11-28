@@ -7,7 +7,7 @@ $(document).ready(function () {
   const footer = document.querySelector("footer");
 
   searchbtn.addEventListener("click", (term) => {
-    const inputValue_disc = search_input_disc.value.trim();
+    const inputValue_disc = search_input_disc.value;
     const inputValue_txt = search_input_txt.value.trim();
 
     // 如果input有valide 值，才會call api
