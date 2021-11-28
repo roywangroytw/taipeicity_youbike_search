@@ -36,14 +36,15 @@ $(document).ready(function (){
               const result_item = document.createElement("div");
               const result_item_content = document.createElement("div");
               result_item.className = "col-12 col-md-4 col-lg-3";
-              result_item_content.className = "content-box";
+              if (sna.match("捷運")) {
+                result_item_content.className = "content-box mrt";
+              } else {
+                result_item_content.className = "content-box";
+              }
 
               const result_item_info = document.createElement("div");
               result_item_info.className = "info"; 
               const result_item_info_name = document.createElement("h2");
-              if (sna.match("捷運")) {
-                result_item_info_name.className = 'mrt'
-              }
               const result_item_info_district = document.createElement("p");
               const result_item_info_address = document.createElement("p");
 
