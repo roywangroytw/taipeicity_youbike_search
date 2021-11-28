@@ -20,11 +20,11 @@ $(document).ready(function (){
 
           data.forEach((item) => {
             const regex_1 = `${inputValue_txt}`;
-            const disc_input = `${inputValue_disc}`;
+            const regex_2 = `${inputValue_disc}`;
             const adr = item.ar;
             const disc = item.sarea;
 
-            if ( disc_input === disc && adr.match(regex_1)) {
+            if ( disc.match(regex_2) && adr.match(regex_1)) {
 
               const {sna, tot, sbi, sarea} = item;
               // sna : spot name
@@ -33,7 +33,7 @@ $(document).ready(function (){
               // sarea: district
 
               const result_item = document.createElement("div");
-              result_item.className = "cal-12 col-md-3";
+              result_item.className = "col-12 col-md-3";
 
               const result_item_info = document.createElement("div");
               const result_item_info_name = document.createElement("h2");
