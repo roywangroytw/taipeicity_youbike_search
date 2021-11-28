@@ -35,6 +35,11 @@ $(document).ready(function (){
               // sarea: district
 
               const result_item = document.createElement("div");
+              const result_item_link = document.createElement("a");
+              result_item_link.className = "item_link";
+              result_item_link.href = `https://www.google.com/maps/?q=${adr}`;
+              result_item_link.target = "_blank";
+
               const result_item_content = document.createElement("div");
               result_item.className = "col-12 col-md-4 col-lg-3";
               if (sna.match("捷運")) {
@@ -66,7 +71,7 @@ $(document).ready(function (){
 
               result_container.appendChild(result_item);
               result_item.appendChild(result_item_content);
-              result_item_content.append(result_item_info, result_item_data);
+              result_item_content.append(result_item_info, result_item_data, result_item_link);
               result_item_info.append(result_item_info_name, result_item_info_district, result_item_info_address);
               result_item_data.append(result_item_data_total, result_item_data_ava, result_item_data_all, result_item_data_free);
 
