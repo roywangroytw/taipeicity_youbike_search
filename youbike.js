@@ -1,114 +1,114 @@
 $(document).ready(function () {
   const searchbtn = document.querySelector("#searchbtn");
   const clearbtn = document.querySelector("#clear");
-  const search_input_disc = document.querySelector("#search_input_disc");
-  const search_input_txt = document.querySelector("#search_input_txt");
-  const result_container = document.querySelector(".row");
+  const searchInputDisc = document.querySelector("#search_input_disc");
+  const searchInputTxt = document.querySelector("#search_input_txt");
+  const resultContainer = document.querySelector(".row");
   const footer = document.querySelector("footer");
 
   searchbtn.addEventListener("click", (term) => {
-    const inputValue_disc = search_input_disc.value;
-    const inputValue_txt = search_input_txt.value.trim();
+    const inputValueDisc = searchInputDisc.value;
+    const inputValueTxt = searchInputTxt.value.trim();
 
     // 如果input有valide 值，才會call api
-    if (inputValue_disc !== "" || inputValue_txt !== "") {
+    if (inputValueDisc !== "" || inputValueTxt !== "") {
       $.ajax({
         url: "https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json",
         dataType: "json",
         success: function (data) {
           data.forEach((item) => {
-            const regex_1 = `${inputValue_txt}`;
-            const regex_2 = `${inputValue_disc}`;
             const adr = item.ar;
             const disc = item.sarea;
 
-            if (disc.match(regex_2) && adr.match(regex_1)) {
-              const { sna, tot, sbi, sarea } = item;
+            if (disc.includes(inputValueDisc) && adr.includes(inputValueTxt)) {
+              const { sna: stationName, tot: totalSpots, sbi: freeSlots, sarea: district } = item;
               // sna : spot name
               // tot: total spots
               // sbi: free bikes to use
               // sarea: district
 
-              const result_item = document.createElement("div");
-              const result_item_link = document.createElement("a");
-              result_item_link.className = "item_link";
-              result_item_link.href = `https://www.google.com/maps/?q=${adr}`;
-              result_item_link.target = "_blank";
+              const resultItem = document.createElement("div");
+              const resultItemLink = document.createElement("a");
+              resultItemLink.className = "item_link";
+              resultItemLink.href = `https://www.google.com/maps/?q=${adr}`;
+              resultItemLink.target = "_blank";
 
-              const result_item_content = document.createElement("div");
-              result_item.className = "col-12 col-md-4 col-lg-3";
-              if (sna.match("捷運")) {
-                result_item_content.className = "content-box mrt";
+              const resultItemContent = document.createElement("div");
+              resultItem.className = "col-12 col-md-4 col-lg-3";
+              if (stationName.match("捷運")) {
+                resultItemContent.className = "content-box mrt";
               } else {
-                result_item_content.className = "content-box";
+                resultItemContent.className = "content-box";
               }
 
-              const result_item_info = document.createElement("div");
-              result_item_info.className = "info";
-              const result_item_info_name = document.createElement("h2");
-              const result_item_info_district = document.createElement("p");
-              const result_item_info_address = document.createElement("p");
+              const resultItemInfo = document.createElement("div");
+              resultItemInfo.className = "info";
+              const resultItemInfoName = document.createElement("h2");
+              const resultItemInfoDistrict = document.createElement("p");
+              const resultItemInfoAddress = document.createElement("p");
 
-              const result_item_data = document.createElement("div");
-              result_item_data.className = "data";
-              const result_item_data_total = document.createElement("p");
-              const result_item_data_ava = document.createElement("p");
-              const result_item_data_all = document.createElement("p");
-              const result_item_data_free = document.createElement("p");
+              const resultItemData = document.createElement("div");
+              resultItemData.className = "data";
+              const resultItemDataTotal = document.createElement("p");
+              const resultItemDataAva = document.createElement("p");
+              const resultItemDataAll = document.createElement("p");
+              const resultItemDataFree = document.createElement("p");
 
-              if (sbi === 0) {
-                result_item_data_free.className = "no_spot";
+              if (freeSlots === 0) {
+                resultItemDataFree.className = "no_spot";
               }
 
-              result_item_info_name.innerText = sna.replace("YouBike2.0_", "");
-              result_item_info_district.innerText = sarea;
-              result_item_info_address.innerText = adr;
-              result_item_data_total.innerText = "Total";
-              result_item_data_ava.innerText = "Available";
-              result_item_data_all.innerText = tot;
-              result_item_data_free.innerText = sbi;
+              resultItemInfoName.innerText = stationName.replace("YouBike2.0_", "");
+              resultItemInfoDistrict.innerText = district;
+              resultItemInfoAddress.innerText = adr;
+              resultItemDataTotal.innerText = "Total";
+              resultItemDataAva.innerText = "Available";
+              resultItemDataAll.innerText = totalSpots;
+              resultItemDataFree.innerText = freeSlots;
 
-              result_container.appendChild(result_item);
-              result_item.appendChild(result_item_content);
-              result_item_content.append(
-                result_item_info,
-                result_item_data,
-                result_item_link
+              resultContainer.appendChild(resultItem);
+              resultItem.appendChild(resultItemContent);
+              resultItemContent.append(
+                resultItemInfo,
+                resultItemData,
+                resultItemLink
               );
-              result_item_info.append(
-                result_item_info_name,
-                result_item_info_district,
-                result_item_info_address
+              resultItemInfo.append(
+                resultItemInfoName,
+                resultItemInfoDistrict,
+                resultItemInfoAddress
               );
-              result_item_data.append(
-                result_item_data_total,
-                result_item_data_ava,
-                result_item_data_all,
-                result_item_data_free
+              resultItemData.append(
+                resultItemDataTotal,
+                resultItemDataAva,
+                resultItemDataAll,
+                resultItemDataFree
               );
-
+            
               // Q: don't know how to make the validation when there are no results due to random search terms
-              if (document.body.contains(result_item)) {
+              if (document.body.contains(resultItem)) {
                 footer.className = "footer_w_content";
               } else {
                 alert("No Result found!");
               }
+
             }
           });
           // Q: how to get the location of browser?
           // Q: how to make html ready and just simply use JS to duplicate and fill in the data?
           // Q: how to make the JS code better and simpler?
           // Q: why bgc in the body will be divided?
-        },
+        }
       });
     } else {
       alert("無法搜尋，搜尋關鍵字至少擇其一搜尋：行政區or地址關鍵字");
     }
+
   });
 
   // clear the search input
   clearbtn.addEventListener("click", (term) => {
-    search_input_disc.value = "";
-    search_input_txt.value = "";
+    searchInputDisc.value = "";
+    searchInputTxt.value = "";
   });
 });
