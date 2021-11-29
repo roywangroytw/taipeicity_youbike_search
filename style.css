@@ -298,7 +298,8 @@ body {
   }
 
   .page-title,
-  .page-subtitle {
+  .page-subtitle,
+  .page-disclaimer  {
     text-align: center;
     padding-right: 0px;
   }
@@ -309,6 +310,13 @@ body {
 
   .page-title {
     font-size: 2rem;
+  }
+
+  .page-disclaimer {
+
+    padding-bottom: 15px;
+    font-weight: 300;
+
   }
 
   #header input {
