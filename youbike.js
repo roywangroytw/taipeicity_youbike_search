@@ -6,6 +6,7 @@ $(document).ready(function () {
   const resultContainer = document.querySelector(".row");
   const footer = document.querySelector("footer");
 
+
   searchbtn.addEventListener("click", (term) => {
     const inputValueDisc = searchInputDisc.value;
     const inputValueTxt = searchInputTxt.value.trim();
@@ -28,7 +29,7 @@ $(document).ready(function () {
               resultItemLink.target = "_blank";
 
               const resultItemContent = document.createElement("div");
-              resultItem.className = "col-12 col-md-4 col-lg-3";
+              resultItem.className = "col-12 col-md-6 col-lg-4";
               if (stationName.match("捷運")) {
                 resultItemContent.className = "content-box mrt";
               } else {
@@ -52,7 +53,7 @@ $(document).ready(function () {
                 resultItemDataFree.className = "no_spot";
               }
 
-              resultItemInfoName.innerText = stationName.replace("YouBike2.0_", "");
+              resultItemInfoName.innerText = stationName.replace("YouBike2.0_", "").replace("捷運", "");
               resultItemInfoDistrict.innerText = district;
               resultItemInfoAddress.innerText = address;
               resultItemDataTotal.innerText = "Total";
@@ -65,7 +66,7 @@ $(document).ready(function () {
               resultItemContent.append(
                 resultItemInfo,
                 resultItemData,
-                resultItemLink
+                resultItemLink,
               );
               resultItemInfo.append(
                 resultItemInfoName,
@@ -89,9 +90,7 @@ $(document).ready(function () {
             }
           });
           // Q: how to get the location of browser?
-          // Q: how to make html ready and just simply use JS to duplicate and fill in the data?
           // Q: how to make the JS code better and simpler?
-          // Q: why bgc in the body will be divided?
           // Q: how to click btn again to clear the result first and then do the search?
         }
       });

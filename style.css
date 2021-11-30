@@ -167,20 +167,27 @@ body {
 
 .info h2 {
   height: 80px;
+  padding: 0 10px 0 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #b9d0e2;
   border-radius: 10px 10px 0 0;
   font-weight: 500;
+  position: relative;
+}
+
+.mrt h2:before {
+  content: url("/images/small.png");
+  margin-right: 5px;
+
 }
 
 .info p {
-  height: 40px;
   font-size: 1.1rem;
   font-weight: 300;
-  line-height: 40px;
   border-bottom: 1px solid #b9d0e2;
+  padding: 10px;
 }
 
 .data {
@@ -273,7 +280,7 @@ body {
   justify-content: center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 920px) {
   #header {
     flex-direction: column;
     position: sticky;
