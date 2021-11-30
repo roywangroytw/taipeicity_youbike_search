@@ -20,10 +20,6 @@ $(document).ready(function () {
             const { sna: stationName, tot: totalSpots, sbi: freeSlots, sarea: district, ar: address } = item;
 
             if (district.includes(inputValueDisc) && address.includes(inputValueTxt)) {
-              // sna : spot name
-              // tot: total spots
-              // sbi: free bikes to use
-              // sarea: district
 
               const resultItem = document.createElement("div");
               const resultItemLink = document.createElement("a");
@@ -96,6 +92,7 @@ $(document).ready(function () {
           // Q: how to make html ready and just simply use JS to duplicate and fill in the data?
           // Q: how to make the JS code better and simpler?
           // Q: why bgc in the body will be divided?
+          // Q: how to click btn again to clear the result first and then do the search?
         }
       });
     } else {
@@ -104,9 +101,12 @@ $(document).ready(function () {
 
   });
 
-  // clear the search input
+  // clear the search input ＆ search result
   clearbtn.addEventListener("click", (term) => {
     searchInputDisc.value = "";
     searchInputTxt.value = "";
+    resultContainer.innerHTML = "";
+    footer.className = "footer";
   });
+
 });
