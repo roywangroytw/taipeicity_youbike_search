@@ -17,11 +17,9 @@ $(document).ready(function () {
         dataType: "json",
         success: function (data) {
           data.forEach((item) => {
-            const adr = item.ar;
-            const disc = item.sarea;
+            const { sna: stationName, tot: totalSpots, sbi: freeSlots, sarea: district, ar: address } = item;
 
-            if (disc.includes(inputValueDisc) && adr.includes(inputValueTxt)) {
-              const { sna: stationName, tot: totalSpots, sbi: freeSlots, sarea: district } = item;
+            if (district.includes(inputValueDisc) && address.includes(inputValueTxt)) {
               // sna : spot name
               // tot: total spots
               // sbi: free bikes to use
@@ -30,7 +28,7 @@ $(document).ready(function () {
               const resultItem = document.createElement("div");
               const resultItemLink = document.createElement("a");
               resultItemLink.className = "item_link";
-              resultItemLink.href = `https://www.google.com/maps/?q=${adr}`;
+              resultItemLink.href = `https://www.google.com/maps/?q=${address}`;
               resultItemLink.target = "_blank";
 
               const resultItemContent = document.createElement("div");
@@ -60,7 +58,7 @@ $(document).ready(function () {
 
               resultItemInfoName.innerText = stationName.replace("YouBike2.0_", "");
               resultItemInfoDistrict.innerText = district;
-              resultItemInfoAddress.innerText = adr;
+              resultItemInfoAddress.innerText = address;
               resultItemDataTotal.innerText = "Total";
               resultItemDataAva.innerText = "Available";
               resultItemDataAll.innerText = totalSpots;
