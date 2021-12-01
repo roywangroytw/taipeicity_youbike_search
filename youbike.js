@@ -12,16 +12,21 @@ $(document).ready(function () {
     const inputValueTxt = searchInputTxt.value.trim();
 
     // 如果input有valide 值，才會call api
+
     if (inputValueDisc !== "" || inputValueTxt !== "") {
+    
+
       $.ajax({
         url: "https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json",
         dataType: "json",
         success: function (data) {
+
           data.forEach((item) => {
             const { sna: stationName, tot: totalSpots, sbi: freeSlots, sarea: district, ar: address } = item;
 
             if (district.includes(inputValueDisc) && address.includes(inputValueTxt)) {
 
+              console.log(item);
               const resultItem = document.createElement("div");
               const resultItemLink = document.createElement("a");
               resultItemLink.className = "item_link";
@@ -80,18 +85,13 @@ $(document).ready(function () {
                 resultItemDataFree
               );
             
-              // Q: don't know how to make the validation when there are no results due to random search terms
-              if (document.body.contains(resultItem)) {
-                footer.className = "footer_w_content";
-              } else {
-                alert("No Result found!");
-              }
 
-            }
+            } 
           });
           // Q: how to get the location of browser?
           // Q: how to make the JS code better and simpler?
           // Q: how to click btn again to clear the result first and then do the search?
+          // Q: is it possible to make the API call into a function itself, and then I call if when user click?
         }
       });
     } else {
