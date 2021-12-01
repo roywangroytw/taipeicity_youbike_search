@@ -13,6 +13,9 @@ $(document).ready(function () {
     const invalideInput = (inputValueDisc === "" && inputValueTxt === "")
     const youBikeData = callAPI(inputValueDisc,inputValueTxt);
 
+    // Each search first clears the previous search data
+    resultContainer.innerHTML = "";
+
     // 2. 如果data沒有result, 就由某個function處理(長element的方式，不要alert)
     if (youBikeData.length === 0) return noResult();
 
@@ -21,13 +24,12 @@ $(document).ready(function () {
 
   });
 
-  //  Event 2: clear the search input ＆ search result
+  //  Event 2: clear the search input
   clearbtn.addEventListener("click", (term) => {
     searchInputDisc.value = "";
     searchInputTxt.value = "";
-    resultContainer.innerHTML = "";
-    footer.className = "footer";
   });
+
 
   function showResult(youBikeData){
     youBikeData.forEach((item) => {
