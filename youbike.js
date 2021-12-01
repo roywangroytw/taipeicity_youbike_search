@@ -11,10 +11,9 @@ $(document).ready(function () {
     const inputValueTxt = searchInputTxt.value.trim();
     const invalideInput = (inputValueDisc === "" && inputValueTxt === "")
     const youBikeData = callAPI(inputValueDisc,inputValueTxt);
-    const dataLength = callAPI()[1];
 
     // 2. 如果data沒有result, 就由某個function處理(長element的方式，不要alert)
-    if (dataLength === 0) noResult();
+    if (youBikeData.length === 0) noResult();
 
     // 3. 如果有data, 就交由另外一個function去處理渲染資訊
     if (youBikeData) return 
@@ -28,8 +27,9 @@ $(document).ready(function () {
     const noResultmessage = document.createElement("p");
 
     noResultcontainer.className = "no-result";
-    noResultimg.src = "";
+    noResultimg.src = "/images/8219606_delivery_logistic_shopping_box_package_icon.png";
     noResultmessage.innerText = "很抱歉，您目前的搜尋沒有結果，可能有錯字或者沒有符合該路名關鍵字的YouBike2.0站點";
+    footer.className = "footer_w_content"
 
     noResultcontainer.append(noResultimg,noResultmessage);
     resultContainer.appendChild(noResultcontainer);
@@ -38,26 +38,31 @@ $(document).ready(function () {
   function callAPI(inputValueDisc,inputValueTxt){
   
     // 如果input都是空值, early return alert
-    if (inputValueDisc === "" && inputValueTxt=== "") return alert("無法搜尋，搜尋關鍵字至少擇其一搜尋：行政區or地址關鍵字");
+    if (inputValueDisc === "" && inputValueTxt=== "") {
+
+      alert("無法搜尋，搜尋關鍵字至少擇其一搜尋：行政區or地址關鍵字");
+      return "empty input"
+
+    } else {
+      
+      var processData = Array(0)
     
-    let processData = []
-  
-    $.ajax({
-      url: "https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json",
-      dataType: "json",
-      // 把ajax變成同步
-      async: false,
-      success: function (data) {
-        processData = data.filter((item) => {
-          const { sna: stationName, tot: totalSpots, sbi: freeSlots, sarea: district, ar: address } = item;
-          if (district.includes(inputValueDisc) && address.includes(inputValueTxt)) {
-            return item
-          }
-        })
-      }
-    })
-    // return [processData, processData.length]
-    return [processData, processData.length]
+      $.ajax({
+        url: "https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json",
+        dataType: "json",
+        // 把ajax變成同步
+        async: false,
+        success: function (data) {
+          processData = data.filter((item) => {
+            const { sna: stationName, tot: totalSpots, sbi: freeSlots, sarea: district, ar: address } = item;
+            if (district.includes(inputValueDisc) && address.includes(inputValueTxt)) {
+              return item
+            }
+          })
+        }
+      })
+    }
+    return processData
   }
 
 })
