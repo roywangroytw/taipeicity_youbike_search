@@ -178,7 +178,7 @@ body {
 }
 
 .mrt h2:before {
-  content: url("./images/small.png");
+  content: url("images/small.png");
   margin-right: 5px;
 
 }

@@ -101,7 +101,7 @@ $(document).ready(function () {
     const noResultmessage = document.createElement("p");
 
     noResultcontainer.className = "no-result";
-    noResultimg.src = "./images/8219606_delivery_logistic_shopping_box_package_icon.png";
+    noResultimg.src = "images/8219606_delivery_logistic_shopping_box_package_icon.png";
     noResultmessage.innerText = "很抱歉，您目前的搜尋沒有結果，可能有錯字或者沒有符合該路名關鍵字的YouBike2.0站點";
     footer.className = "footer_w_content"
 
